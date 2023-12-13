@@ -25,6 +25,8 @@ Descriptions of Columns
 * <code class="language-plaintext highlighter-rouge">“damageshare”</code> is the proportion of the team's damage that player dealt
 * <code class="language-plaintext highlighter-rouge">“has_more_kills”</code> states whether or not the player has more kills than their lane opponent. It is a boolean that returns either “True” or “False”
 
+Below is the first 5 rows of our original dataframe:
+
 |    | gameid                | side   | position   | champion   |   result |   kills |   teamkills |   damageshare |
 |---:|:----------------------|:-------|:-----------|:-----------|---------:|--------:|------------:|--------------:|
 |  0 | ESPORTSTMNT06_2753012 | Blue   | top        | Jax        |        1 |       4 |          13 |     0.150027  |
@@ -33,10 +35,7 @@ Descriptions of Columns
 |  3 | ESPORTSTMNT06_2753012 | Blue   | bot        | Ezreal     |        1 |       5 |          13 |     0.441215  |
 |  4 | ESPORTSTMNT06_2753012 | Blue   | sup        | Karma      |        1 |       0 |          13 |     0.0595359 |
 
-
-
-## Problem Identification
-Our prediction problem is trying to predict whether a support player won their game of League of Legends, given only their post game statistics (without the result). Note that we do not include the results of the any other player in each game in our analysis, as we want to focus on only the support's statistics. This is a binary classification problem, with the two outcomes being a win or a loss. Our response variable is the “result” column, which is 1 if a team won a game, and 0 otherwise. We chose this because we wanted to further explore the influence of a support's behavior on the result of a game from our previous project. We are evaluating our model through accuracy. A false positive or false negative do not really have much consequences so an F-1 score isn't as important in this context.
+These are the first 5 rows of the cleaned dataframe:
 
 
 | side   | champion   |   result |   teamkills |   damageshare | has_more_kills   |
@@ -46,6 +45,9 @@ Our prediction problem is trying to predict whether a support player won their g
 | Red    | Tahm Kench |        0 |           9 |     0.121665  | True             |
 | Blue   | Rakan      |        1 |          27 |     0.0634818 | False            |
 | Red    | Rakan      |        1 |          29 |     0.0751361 | False            |
+
+## Problem Identification
+Our prediction problem is trying to predict whether a support player won their game of League of Legends, given only their post game statistics (without the result). Note that we do not include the results of the any other player in each game in our analysis, as we want to focus on only the support's statistics. This is a binary classification problem, with the two outcomes being a win or a loss. Our response variable is the “result” column, which is 1 if a team won a game, and 0 otherwise. We chose this because we wanted to further explore the influence of a support's behavior on the result of a game from our previous project. We are evaluating our model through accuracy. A false positive or false negative do not really have much consequences so an F-1 score isn't as important in this context.
 
 
 ## Baseline Model
@@ -77,6 +79,8 @@ The features we added were `"has_more_kills"` and `"teamkills"`. We converted `"
 We chose to add `"has_more_kills"` and `"teamkills"` because kills are heavily influential on a games outcome. In our previous project we found that when a support has more kills they are more likely to lose than if they did not have more kills. In addition, the team with more kills will have more resources than the other team. The gold they get from those kills can be used to buy items faster which in turn them win the game.
 We standardized `"damageshare"` and `"teamkills"` because these are both quantitative variables that vary from game to game. Standardizing these variables allows us to compare the number of kills to the other games as a whole and can more concretely determine what is considered a amount of teamkills. The same applies to damageshare, as standardizing it will make it easier to compare with the other games as a whole. We standardized these variables by using StandardScaler().
 
+The importance of each feature is shown below:
+
 |    | Feature           |   Importance |
 |---:|:------------------|-------------:|
 | 86 | teamkills         |   0.814553   |
@@ -90,6 +94,9 @@ We standardized `"damageshare"` and `"teamkills"` because these are both quantit
 |  4 | champion_Ashe     |   0.00223513 |
 | 51 | champion_Rell     |   0.0021532  |
 
+<img src = "assets/confusion_matrix.png">
+
+Above is the confusion matric for our model's predicitons. 
 
 Final Model VS Baseline Model
 Our Final model had an accuracy of roughly 80%, which is a roughly a 30% increase from our Baseline model’s accuracy of 50%. This is a substantial improvement to our baseline, giving us about a 4/5 chance to get the correct result. This increase is likely due to access to a wider range of data, allowing for the decision tree to make more accurate decisions based on more variables/information.
@@ -100,4 +107,4 @@ Our first group is players on the 'red' side and the second group are the player
 
 Below you will find a histogram of our test statistic. The red vertical line is our observed accuracy difference and the rest of the histogram is our simulated differences in accuracy for group X and group Y.
 
-
+<iframe src="assets/fairness_distribution.html" width=800 height=600 frameBorder=0></iframe>
