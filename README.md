@@ -110,7 +110,7 @@ This shows that of the features that we used, `"teamkills"` has the greatest amo
 
 Above is the confusion matric for our final model's predicitons. 1664 represents League of Legends games correctly predicted to lose. 1927 represents League of Legends games correctly predicted to win. This means 464 represents League of Legends games incorrectly predicted to win when they actually lost and 225 represents League of Legends games incorrectly predicted to lose when they actually won.
 
-Final Model VS Baseline Model
+### Final Model VS Baseline Model
 Our Final model had an accuracy of roughly 84%, which is a roughly a 34% increase from our Baseline model’s accuracy of 50%. This is a substantial improvement to our baseline, giving us about a 4/5 chance to get the correct result. This increase is likely due to access to a wider range of data, allowing for the decision tree to make more accurate decisions based on more variables/information.
 
 ## Fairness Analysis
