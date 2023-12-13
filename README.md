@@ -77,6 +77,20 @@ The features we added were `"has_more_kills"` and `"teamkills"`. We converted `"
 We chose to add `"has_more_kills"` and `"teamkills"` because kills are heavily influential on a games outcome. In our previous project we found that when a support has more kills they are more likely to lose than if they did not have more kills. In addition, the team with more kills will have more resources than the other team. The gold they get from those kills can be used to buy items faster which in turn them win the game.
 We standardized `"damageshare"` and `"teamkills"` because these are both quantitative variables that vary from game to game. Standardizing these variables allows us to compare the number of kills to the other games as a whole and can more concretely determine what is considered a amount of teamkills. The same applies to damageshare, as standardizing it will make it easier to compare with the other games as a whole. We standardized these variables by using StandardScaler().
 
+|    | Feature           |   Importance |
+|---:|:------------------|-------------:|
+| 86 | teamkills         |   0.814553   |
+| 87 | damageshare       |   0.0673076  |
+| 88 | has_more_kills    |   0.0554468  |
+| 85 | side_Red          |   0.00396449 |
+| 49 | champion_Rakan    |   0.00337689 |
+| 84 | side_Blue         |   0.0028031  |
+| 33 | champion_Lulu     |   0.00261533 |
+| 41 | champion_Nautilus |   0.00258285 |
+|  4 | champion_Ashe     |   0.00223513 |
+| 51 | champion_Rell     |   0.0021532  |
+
+
 Final Model VS Baseline Model
 Our Final model had an accuracy of roughly 80%, which is a roughly a 30% increase from our Baseline model’s accuracy of 50%. This is a substantial improvement to our baseline, giving us about a 4/5 chance to get the correct result. This increase is likely due to access to a wider range of data, allowing for the decision tree to make more accurate decisions based on more variables/information.
 
