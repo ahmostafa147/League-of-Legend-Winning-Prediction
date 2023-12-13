@@ -89,7 +89,7 @@ First will show the all of the different `"champion"` features, followed by `"si
 We chose to add `"has_more_kills"` and `"teamkills"` because kills are heavily influential on a games outcome. In our previous project we found that when a support has more kills they are more likely to lose than if they did not have more kills. In addition, the team with more kills will have more resources than the other team. The gold they get from those kills can be used to buy items faster which in turn them win the game.
 We standardized `"damageshare"` and `"teamkills"` because these are both quantitative variables that vary from game to game. Standardizing these variables allows us to compare the number of kills to the other games as a whole and can more concretely determine what is considered a amount of teamkills. The same applies to damageshare, as standardizing it will make it easier to compare with the other games as a whole. We standardized these variables by using StandardScaler().
 
-The importance of each feature is shown below:
+The importance of the ten most important features are shown below:
 
 |    | Feature           |   Importance |
 |---:|:------------------|-------------:|
