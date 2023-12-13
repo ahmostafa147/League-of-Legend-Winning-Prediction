@@ -50,10 +50,10 @@ Our prediction problem is trying to predict whether a support player won their g
 
 ## Baseline Model
 ---
-For our Baseline model we took our cleaned DataFrame and further isolated two features. The features of our model are `"champion"`, meaning the selected champion, and `"damageshare"`, meaning the total kills of the team. We one-hot-encoded `"champion"`. Below you will find the first five rows of the data we used in our Baseline Model where we tested `"champion"` and `"damageshare"` and tried to predict `"result"`.
+For our Baseline model we took our cleaned DataFrame and further isolated two features, one quantitative and one nominal. The features of our model are `"champion"`, meaning the selected champion, and `"damageshare"`, meaning the total kills of the team. We one-hot-encoded `"champion"`. Below you will find the first five rows of the data we used in our Baseline Model where we tested `"champion"` and `"damageshare"` and tried to predict `"result"`.
 
 
-We chose `"champion"` and `"damageshare"` as our two features because we thought that certain champions are more successful than others in the support role, and that supports with higher damageshares of their team are more likely to lose. This is because some champions win more in a professional setting with their chemistry with other champions used in pro play. In addition, typically when a support does a greater proportion of their teams damage that means that their teammates (the ones who should be doing damage) aren't doing enough damage, and will likely mean that they're behind and losing. We one-hot-encoded `"champion"` by using OneHotEncoder().
+We chose `"champion"` and `"damageshare"` as our two features because we thought that certain champions are more successful than others in the support role, and that supports with higher damageshares of their team are more likely to lose. This is because some champions win more in a professional setting with their chemistry with other champions used in pro play. In addition, typically when a support does a greater proportion of their teams damage that means that their teammates (the ones who should be doing damage) aren't doing enough damage, and will likely mean that they're behind and losing. We one-hot-encoded `"champion"` by using OneHotEncoder(). The accuracy of this model was roughly 50%, meaning that it was accurate about half of the time. 
 
 ## Final Model
 ---
@@ -64,7 +64,7 @@ The modeling algorithm we chose was a decision tree, as we have a classification
  
 ### Features
 
-The features we added were `"has_more_kills"` and `"teamkills"`. We converted `"has_more_kills"` from a boolean to binary, and performed feature engineering on `"teamkills"` as well as `"damageshare"`. `"has_more_kills"` determines if the player had more kills than their opponenet in the same position for that game, and `"teamkills"` is the total number of kills the player's team had for that game.
+The features we added were `"has_more_kills"` and `"teamkills"`. In total we had two quantitative features, one nominal and one binary. We converted `"has_more_kills"` from a boolean to binary, and performed feature engineering on `"teamkills"` as well as `"damageshare"`. `"has_more_kills"` determines if the player had more kills than their opponenet in the same position for that game, and `"teamkills"` is the total number of kills the player's team had for that game.
 
 **Here is what our Dataframe looks like:**
 
