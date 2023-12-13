@@ -61,14 +61,6 @@ We chose `"champion"` and `"damageshare"` as our two features because we thought
 The modeling algorithm we chose was a decision tree, as we have a classification problem. The hyperparameters that worked the best for our model were gini
 
 The modeling algorithm we chose was a decision tree, as we have a classification problem. The hyperparameters that worked the best for our model were criterion = “gini”, max_depth = None, max_features = sqrt, min_samples_leaf = 1, min_samples_split = 50, and forest_n_estimators = 50. We found our optimal hyperparameters through a self implemented, slightly modified version of grid search. 
-
-**Here are our desired hyper parameters as shown in a DataFrame:**
-'forest__criterion': 'gini',
- 'forest__max_depth': None,
- 'forest__max_features': 'auto',
- 'forest__min_samples_leaf': 4,
- 'forest__min_samples_split': 25,
- 'forest__n_estimators': 50
  
 ### Features
 
@@ -94,12 +86,14 @@ The importance of each feature is shown below:
 |  4 | champion_Ashe     |   0.00223513 |
 | 51 | champion_Rell     |   0.0021532  |
 
+This shows that of the features that we used, `"teamkills"` has the greatest amount of importance when predicting whether a support will win or lose.
+
 <img src = "assets/confusion_matrix.png">
 
-Above is the confusion matric for our model's predicitons. 
+Above is the confusion matric for our final model's predicitons. 1664 represents League of Legends games correctly predicted to lose. 1927 represents League of Legends games correctly predicted to win. This means 464 represents League of Legends games incorrectly predicted to win when they actually lost and 225 represents League of Legends games incorrectly predicted to lose when they actually won.
 
 Final Model VS Baseline Model
-Our Final model had an accuracy of roughly 80%, which is a roughly a 30% increase from our Baseline model’s accuracy of 50%. This is a substantial improvement to our baseline, giving us about a 4/5 chance to get the correct result. This increase is likely due to access to a wider range of data, allowing for the decision tree to make more accurate decisions based on more variables/information.
+Our Final model had an accuracy of roughly 84%, which is a roughly a 34% increase from our Baseline model’s accuracy of 50%. This is a substantial improvement to our baseline, giving us about a 4/5 chance to get the correct result. This increase is likely due to access to a wider range of data, allowing for the decision tree to make more accurate decisions based on more variables/information.
 
 ## Fairness Analysis
 The question we have for our fairness analysis is, “Does this model perform worse for supports on the red side than it does for supports on the blue side?"
