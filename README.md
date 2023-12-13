@@ -25,7 +25,7 @@ Descriptions of Columns
 * <code class="language-plaintext highlighter-rouge">“damageshare”</code> is the proportion of the team's damage that player dealt
 * <code class="language-plaintext highlighter-rouge">“has_more_kills”</code> states whether or not the player has more kills than their lane opponent. It is a boolean that returns either “True” or “False”
 
-Below is the first 5 rows of our original dataframe:
+Below is the first 5 rows of the dataframe with the columns we needed:
 
 |    | gameid                | side   | position   | champion   |   result |   kills |   teamkills |   damageshare |
 |---:|:----------------------|:-------|:-----------|:-----------|---------:|--------:|------------:|--------------:|
@@ -35,8 +35,7 @@ Below is the first 5 rows of our original dataframe:
 |  3 | ESPORTSTMNT06_2753012 | Blue   | bot        | Ezreal     |        1 |       5 |          13 |     0.441215  |
 |  4 | ESPORTSTMNT06_2753012 | Blue   | sup        | Karma      |        1 |       0 |          13 |     0.0595359 |
 
-These are the first 5 rows of the cleaned dataframe:
-
+Below are the first 5 rows of the cleaned dataframe:
 
 | side   | champion   |   result |   teamkills |   damageshare | has_more_kills   |
 |:-------|:-----------|---------:|------------:|--------------:|:-----------------|
@@ -48,7 +47,6 @@ These are the first 5 rows of the cleaned dataframe:
 
 ## Problem Identification
 Our prediction problem is trying to predict whether a support player won their game of League of Legends, given only their post game statistics (without the result). Note that we do not include the results of the any other player in each game in our analysis, as we want to focus on only the support's statistics. This is a binary classification problem, with the two outcomes being a win or a loss. Our response variable is the “result” column, which is 1 if a team won a game, and 0 otherwise. We chose this because we wanted to further explore the influence of a support's behavior on the result of a game from our previous project. We are evaluating our model through accuracy. A false positive or false negative do not really have much consequences so an F-1 score isn't as important in this context.
-
 
 ## Baseline Model
 ---
