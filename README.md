@@ -25,6 +25,15 @@ Descriptions of Columns
 * <code class="language-plaintext highlighter-rouge">“has_more_kills”</code> states whether or not the player has more kills than their lane opponent. It is a boolean that returns either “True” or “False”
 * <code class="language-plaintext highlighter-rouge">“damageshare”</code> is the proportion of the team's damage that player dealt
 
+|    | gameid                | side   | position   | champion   |   result |   kills |   teamkills |   damageshare |
+|---:|:----------------------|:-------|:-----------|:-----------|---------:|--------:|------------:|--------------:|
+|  0 | ESPORTSTMNT06_2753012 | Blue   | top        | Jax        |        1 |       4 |          13 |     0.150027  |
+|  1 | ESPORTSTMNT06_2753012 | Blue   | jng        | Poppy      |        1 |       2 |          13 |     0.0653236 |
+|  2 | ESPORTSTMNT06_2753012 | Blue   | mid        | Taliyah    |        1 |       2 |          13 |     0.283899  |
+|  3 | ESPORTSTMNT06_2753012 | Blue   | bot        | Ezreal     |        1 |       5 |          13 |     0.441215  |
+|  4 | ESPORTSTMNT06_2753012 | Blue   | sup        | Karma      |        1 |       0 |          13 |     0.0595359 |
+
+
 
 
 | side   | champion   |   result |   teamkills |   damageshare | has_more_kills   |
