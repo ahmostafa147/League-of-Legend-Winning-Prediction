@@ -27,13 +27,13 @@ Descriptions of Columns
 
 
 
-|       | side   | champion   |   result |   teamkills |   damageshare | has_more_kills   
-|\n|------:|:-------|:-----------|---------:|------------:|--------------:|:-----------------
-|\n|     3 | Red    | Alistar    |        1 |          21 |     0.0380566 | False            
-|\n| 53863 | Blue   | Nautilus   |        0 |           4 |     0.10302   | False            
-|\n|     8 | Red    | Tahm Kench |        0 |           9 |     0.121665  | True             
-|\n| 53868 | Blue   | Rakan      |        1 |          27 |     0.0634818 | False            
-|\n|    13 | Red    | Rakan      |        1 |          29 |     0.0751361 | False            |
+|       | side   | champion   |   result |   teamkills |   damageshare | has_more_kills   |
+|------:|:-------|:-----------|---------:|------------:|--------------:|:-----------------|
+|     3 | Red    | Alistar    |        1 |          21 |     0.0380566 | False            |
+| 53863 | Blue   | Nautilus   |        0 |           4 |     0.10302   | False            |
+|     8 | Red    | Tahm Kench |        0 |           9 |     0.121665  | True             |
+| 53868 | Blue   | Rakan      |        1 |          27 |     0.0634818 | False            |
+|    13 | Red    | Rakan      |        1 |          29 |     0.0751361 | False            |
 
 ## Problem Identification
 Our prediction problem is trying to predict whether a support player won their game of League of Legends, given only their post game statistics (without the result). Note that we do not include the results of the any other player in each game in our analysis, as we want to focus on only the support's statistics. This is a binary classification problem, with the two outcomes being a win or a loss. Our response variable is the “result” column, which is 1 if a team won a game, and 0 otherwise. We chose this because we wanted to further explore the influence of a support's behavior on the result of a game from our previous project. We are evaluating our model through accuracy. A false positive or false negative do not really have much consequences so an F-1 score isn't as important in this context.
