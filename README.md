@@ -61,14 +61,6 @@ We chose `"champion"` and `"damageshare"` as our two features because we thought
 The modeling algorithm we chose was a decision tree, as we have a classification problem. The hyperparameters that worked the best for our model were gini
 
 The modeling algorithm we chose was a decision tree, as we have a classification problem. The hyperparameters that worked the best for our model were criterion = “gini”, max_depth = None, max_features = sqrt, min_samples_leaf = 1, min_samples_split = 50, and forest_n_estimators = 50. We found our optimal hyperparameters through a self implemented, slightly modified version of grid search. 
-
-**Here are our desired hyper parameters as shown in a DataFrame:**
-'forest__criterion': 'gini',
- 'forest__max_depth': None,
- 'forest__max_features': 'auto',
- 'forest__min_samples_leaf': 4,
- 'forest__min_samples_split': 25,
- 'forest__n_estimators': 50
  
 ### Features
 
@@ -93,6 +85,8 @@ The importance of each feature is shown below:
 | 41 | champion_Nautilus |   0.00258285 |
 |  4 | champion_Ashe     |   0.00223513 |
 | 51 | champion_Rell     |   0.0021532  |
+
+This shows that of the features that we used, `"teamkills"` has the greatest amount of importance when predicting whether a support will win or lose.
 
 <img src = "assets/confusion_matrix.png">
 
