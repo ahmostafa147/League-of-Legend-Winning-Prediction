@@ -17,13 +17,13 @@ Descriptions of Columns
 
 * <code class="language-plaintext highlighter-rouge">"gameid"</code> is the identification number of the particular game from that tournament. This is unique for all games in the dataset
 * <code class="language-plaintext highlighter-rouge">"side"</code> is the side that player played on. This can either be red or blue (corresponding to the red and blue sides on the map for League of Legends)
-* <code class="language-plaintext highlighter-rouge">"champion"</code> is the champion that the player selected for that game.
 * <code class="language-plaintext highlighter-rouge">“position”</code> is the position or role the player played. This can be “top”, “mid”, “bot”, “jng”, or “sup” for the five positions in League of Legends
+* <code class="language-plaintext highlighter-rouge">"champion"</code> is the champion that the player selected for that game.
 * <code class="language-plaintext highlighter-rouge">“result”</code> is whether or not the team won. It will be 1 if the player’s team won or 0 for a loss
 * <code class="language-plaintext highlighter-rouge">"kills"</code> is the number of kills that particular player got in that game
 * <code class="language-plaintext highlighter-rouge">“teamkills”</code> is the total number of kills a player's team got
-* <code class="language-plaintext highlighter-rouge">“has_more_kills”</code> states whether or not the player has more kills than their lane opponent. It is a boolean that returns either “True” or “False”
 * <code class="language-plaintext highlighter-rouge">“damageshare”</code> is the proportion of the team's damage that player dealt
+* <code class="language-plaintext highlighter-rouge">“has_more_kills”</code> states whether or not the player has more kills than their lane opponent. It is a boolean that returns either “True” or “False”
 
 |    | gameid                | side   | position   | champion   |   result |   kills |   teamkills |   damageshare |
 |---:|:----------------------|:-------|:-----------|:-----------|---------:|--------:|------------:|--------------:|
@@ -35,6 +35,9 @@ Descriptions of Columns
 
 
 
+## Problem Identification
+Our prediction problem is trying to predict whether a support player won their game of League of Legends, given only their post game statistics (without the result). Note that we do not include the results of the any other player in each game in our analysis, as we want to focus on only the support's statistics. This is a binary classification problem, with the two outcomes being a win or a loss. Our response variable is the “result” column, which is 1 if a team won a game, and 0 otherwise. We chose this because we wanted to further explore the influence of a support's behavior on the result of a game from our previous project. We are evaluating our model through accuracy. A false positive or false negative do not really have much consequences so an F-1 score isn't as important in this context.
+
 
 | side   | champion   |   result |   teamkills |   damageshare | has_more_kills   |
 |:-------|:-----------|---------:|------------:|--------------:|:-----------------|
@@ -44,8 +47,6 @@ Descriptions of Columns
 | Blue   | Rakan      |        1 |          27 |     0.0634818 | False            |
 | Red    | Rakan      |        1 |          29 |     0.0751361 | False            |
 
-## Problem Identification
-Our prediction problem is trying to predict whether a support player won their game of League of Legends, given only their post game statistics (without the result). Note that we do not include the results of the any other player in each game in our analysis, as we want to focus on only the support's statistics. This is a binary classification problem, with the two outcomes being a win or a loss. Our response variable is the “result” column, which is 1 if a team won a game, and 0 otherwise. We chose this because we wanted to further explore the influence of a support's behavior on the result of a game from our previous project. We are evaluating our model through accuracy. A false positive or false negative do not really have much consequences so an F-1 score isn't as important in this context.
 
 ## Baseline Model
 For our Baseline model we took our cleaned DataFrame and further isolated two features. The features of our model are `"champion"`, meaning the selected champion, and `"damageshare"`, meaning the total kills of the team. We one-hot-encoded `"champion"`. Below you will find the first five rows of the data we used in our Baseline Model where we tested `"champion"` and `"damageshare"` and tried to predict `"result"`.
