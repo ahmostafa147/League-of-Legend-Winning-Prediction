@@ -94,6 +94,9 @@ The importance of each feature is shown below:
 |  4 | champion_Ashe     |   0.00223513 |
 | 51 | champion_Rell     |   0.0021532  |
 
+<img src = "assets/confusion_matrix.png">
+
+Above is the confusion matric for our model's predicitons. 
 
 Final Model VS Baseline Model
 Our Final model had an accuracy of roughly 80%, which is a roughly a 30% increase from our Baseline model’s accuracy of 50%. This is a substantial improvement to our baseline, giving us about a 4/5 chance to get the correct result. This increase is likely due to access to a wider range of data, allowing for the decision tree to make more accurate decisions based on more variables/information.
