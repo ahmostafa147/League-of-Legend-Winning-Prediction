@@ -72,7 +72,7 @@ The modeling algorithm we chose was a decision tree, as we have a classification
  
 ### Features
 
-The features we added were `"has_more_kills"` and `"teamkills"`. In total we had two quantitative features, one nominal feature and one binary feature. We converted `"has_more_kills"` from a boolean to binary, and performed feature engineering on `"teamkills"` as well as `"damageshare"`. `"has_more_kills"` determines if the player had more kills than their opponenet in the same position for that game, and `"teamkills"` is the total number of kills the player's team had for that game.
+The features we added were `"has_more_kills"`, `"teamkills"`, and `"side"`. In total we had two quantitative features, two nominal features and one binary feature. We one-hot-encoded `"side"`, converted `"has_more_kills"` from a boolean to binary, and performed feature engineering on `"teamkills"` as well as `"damageshare"`. `"has_more_kills"` determines if the player had more kills than their opponenet in the same position for that game, and `"teamkills"` is the total number of kills the player's team had for that game.
 
 Below is our Dataframe that shows the first five rows of the data we used in our Final Model where we tested `"champion"`,  `"has_more_kills"`, `"teamkills"`, and `"damageshare"` and tried to predict `"result"`:
 
