@@ -56,7 +56,9 @@ We chose `"champion"` and `"damageshare"` as our two features because we thought
 
 ## Final Model
 ### Hyperparameters
-The modeling algorithm we chose was a decision tree, as we have a classification problem. The hyperparameters that worked the best for our model were 
+The modeling algorithm we chose was a decision tree, as we have a classification problem. The hyperparameters that worked the best for our model were gini
+
+The modeling algorithm we chose was a decision tree, as we have a classification problem. The hyperparameters that worked the best for our model were criterion = “gini”, max_depth = None, max_features = sqrt, min_samples_leaf = 1, min_samples_split = 50, and forest_n_estimators = 50. We found our optimal hyperparameters through a self implemented, slightly modified version of grid search. 
 
 **Here are our desired hyper parameters as shown in a DataFrame:**
 'forest__criterion': 'gini',
