@@ -107,4 +107,4 @@ Our first group is players on the 'red' side and the second group are the player
 
 Below you will find a histogram of our test statistic. The red vertical line is our observed accuracy difference and the rest of the histogram is our simulated differences in accuracy for group X and group Y.
 
-
+<iframe src="assets/fairness_distribution.html" width=800 height=600 frameBorder=0></iframe>
