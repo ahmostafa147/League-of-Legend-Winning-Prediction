@@ -50,7 +50,7 @@ Our prediction problem is trying to predict whether a support player won their g
 
 ## Baseline Model
 ---
-For our Baseline model we took our cleaned DataFrame and further isolated two features, one quantitative and one nominal. The features of our model are `"champion"`, meaning the selected champion, and `"damageshare"`, meaning the total kills of the team. We one-hot-encoded `"champion"`.
+For our Baseline model we took our cleaned DataFrame and further isolated two features, one quantitative and one nominal. The features of our model are `"champion"`, meaning the selected champion, and `"damageshare"`, meaning the proportion of damage a player did to the opponent out of the damage done by the whole team. To make the features more suitable for our model to predict, we one-hot-encoded `"champion"`, and standardized `"damageshare"`.
 
 Below is our Dataframe that shows the first five rows of the data we used in our Final Model where we tested `"champion"` and `"damageshare"` and tried to predict `"result"`:
 
